@@ -25,7 +25,13 @@ namespace comp2007_s2016_lesson_4
         {
             using (DefaultConnection db = new DefaultConnection())
             {
+                // query the student's table using EF and LINQ
+                var student = (from allStudents in db.Students
+                               select allStudents);
 
+                // bind the result to the grid view
+                StudentGridView.DataSource = student.ToList();
+                StudentGridView.DataBind();
             }
         }
     }
