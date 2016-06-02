@@ -5,13 +5,28 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using comp2007_s2016_lesson_4.Models;
+using System.Web.ModelBinding;
+
 namespace comp2007_s2016_lesson_4
 {
     public partial class Students : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // if we're loading the page for the first time, pupulate the grid
+            if(!IsPostBack)
+            {
+                this.FetchStudents();
+            }
+        }
 
+        protected void FetchStudents()
+        {
+            using (DefaultConnection db = new DefaultConnection())
+            {
+
+            }
         }
     }
 }
